@@ -6,5 +6,11 @@
   "dependencies": {
     "apollo-server": "^2.4.8",
     "graphql": "^14.2.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.0"
+  },
+  "scripts": {
+    "format": "prettier --write src/**/*.{js,jsx}"
   }
 }
