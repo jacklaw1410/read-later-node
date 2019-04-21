@@ -28,7 +28,13 @@ const resolvers = {
   },
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  engine: process.env.ENGINE_API_KEY && {
+    apiKey: process.env.ENGINE_API_KEY,
+  },
+});
 
 server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
