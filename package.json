@@ -11,6 +11,7 @@
     "prettier": "^1.17.0"
   },
   "scripts": {
+    "start": "node src/index.js",
     "format": "prettier --write src/**/*.{js,jsx}"
   }
 }
