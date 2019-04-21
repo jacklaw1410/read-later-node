@@ -1,5 +1,7 @@
 const { ApolloServer, gql } = require('apollo-server');
 
+require('dotenv').config();
+
 const books = [
   {
     title: 'Harry Potter and the Chamber of Secrets',
