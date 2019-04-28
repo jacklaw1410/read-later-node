@@ -8,7 +8,9 @@
     "dotenv": "^7.0.0",
     "graphql": "^14.2.1",
     "graphql-iso-date": "^3.6.1",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "pg": "^7.10.0",
+    "sequelize": "^5.7.6"
   },
   "devDependencies": {
     "prettier": "^1.17.0"
