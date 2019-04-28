@@ -4,21 +4,21 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
     "apollo-server": "^2.4.8",
     "dotenv": "^7.0.0",
     "graphql": "^14.2.1",
     "graphql-iso-date": "^3.6.1",
     "lodash": "^4.17.11",
+    "nodemon": "^1.18.11",
     "pg": "^7.10.0",
     "sequelize": "^5.7.6",
     "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/register": "^7.4.4",
-    "nodemon": "^1.18.11",
     "prettier": "^1.17.0"
   },
   "scripts": {
