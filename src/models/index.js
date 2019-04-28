@@ -6,6 +6,9 @@ export const sequelize = new Sequelize(process.env.DATABASE_URL, {
     min: 2,
     max: 10,
   },
+  define: {
+    timestamps: false,
+  },
 });
 
 const models = {

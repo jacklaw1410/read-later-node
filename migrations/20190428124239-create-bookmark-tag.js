@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('BookmarkTags', {
+    await queryInterface.createTable('bookmark_tags', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,20 +10,20 @@ module.exports = {
       },
     });
 
-    await queryInterface.addColumn('BookmarkTags', 'bookmarkId', {
+    await queryInterface.addColumn('bookmark_tags', 'bookmarkId', {
       type: Sequelize.INTEGER,
       references: {
-        model: 'Bookmarks',
+        model: 'bookmarks',
         key: 'id',
       },
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL',
     });
 
-    return queryInterface.addColumn('BookmarkTags', 'tagId', {
+    return queryInterface.addColumn('bookmark_tags', 'tagId', {
       type: Sequelize.INTEGER,
       references: {
-        model: 'Tags',
+        model: 'tags',
         key: 'id',
       },
       onUpdate: 'CASCADE',
@@ -31,10 +31,10 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn('BookmarkTags', 'tagId');
+    await queryInterface.removeColumn('bookmark_tags', 'tagId');
 
-    await queryInterface.removeColumn('BookmarkTags', 'bookmarkId');
+    await queryInterface.removeColumn('bookmark_tags', 'bookmarkId');
 
-    return queryInterface.dropTable('BookmarkTags');
+    return queryInterface.dropTable('bookmark_tags');
   },
 };

@@ -8,7 +8,7 @@ export default {
       return tags;
     },
     tag: async (parent, { id }, { models }) => {
-      return await models.Tag.findById(id);
+      return await models.Tag.findByPk(id);
     },
   },
 

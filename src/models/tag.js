@@ -13,7 +13,7 @@ const tag = (sequelize, DataTypes) => {
   });
 
   Tag.associate = models => {
-    Tag.hasMany(models.Bookmark, {
+    Tag.belongsToMany(models.Bookmark, {
       through: {
         model: models.BookmarkTag,
         unique: false,

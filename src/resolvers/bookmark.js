@@ -8,7 +8,7 @@ export default {
       return bookmarks;
     },
     bookmark: async (parent, { id }, { models }) => {
-      return await models.Bookmark.findById(id);
+      return await models.Bookmark.findByPk(id);
     },
   },
 

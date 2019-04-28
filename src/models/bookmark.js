@@ -21,7 +21,7 @@ const bookmark = (sequelize, DataTypes) => {
   });
 
   Bookmark.associate = models => {
-    Bookmark.hasMany(models.Tag, {
+    Bookmark.belongsToMany(models.Tag, {
       through: {
         model: models.BookmarkTag,
         unique: false,
