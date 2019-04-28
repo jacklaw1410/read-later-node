@@ -10,7 +10,8 @@
     "graphql-iso-date": "^3.6.1",
     "lodash": "^4.17.11",
     "pg": "^7.10.0",
-    "sequelize": "^5.7.6"
+    "sequelize": "^5.7.6",
+    "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -18,8 +19,7 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/register": "^7.4.4",
     "nodemon": "^1.18.11",
-    "prettier": "^1.17.0",
-    "sequelize-cli": "^5.4.0"
+    "prettier": "^1.17.0"
   },
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
