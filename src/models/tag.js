@@ -12,6 +12,17 @@ const tag = (sequelize, DataTypes) => {
     },
   });
 
+  Tag.associate = models => {
+    Tag.hasMany(models.Bookmark, {
+      through: {
+        model: models.BookmarkTag,
+        unique: false,
+      },
+      foreignKey: 'tagId',
+      constraints: true,
+    });
+  };
+
   return Tag;
 };
 

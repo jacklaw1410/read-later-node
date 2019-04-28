@@ -12,6 +12,7 @@ const models = {
   // User: sequelize.import('./user'),
   Bookmark: sequelize.import('./bookmark'),
   Tag: sequelize.import('./tag'),
+  BookmarkTag: sequelize.import('./bookmark-tag'),
 };
 
 Object.keys(models).forEach(key => {
