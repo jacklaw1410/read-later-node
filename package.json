@@ -13,7 +13,8 @@
     "sequelize": "^5.7.6"
   },
   "devDependencies": {
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "sequelize-cli": "^5.4.0"
   },
   "scripts": {
     "start": "node src/index.js",
