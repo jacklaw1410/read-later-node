@@ -16,7 +16,7 @@ const bookmark = (sequelize, DataTypes) => {
     },
     finished: {
       type: DATE,
-      allowNull: false,
+      allowNull: true,
     },
   });
 

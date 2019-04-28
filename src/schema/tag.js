@@ -7,6 +7,7 @@ export default gql`
   }
 
   type Tag {
+    id: String!
     name: String!
     bookmarks: [Bookmark!]!
   }

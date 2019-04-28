@@ -14,15 +14,7 @@ export default {
 
   Tag: {
     bookmarks: async (parent, args, { models }) => {
-      const bookmarks = await models.Bookmark.findAll({
-        includes: [
-          {
-            model: models.Tag,
-          },
-        ],
-      });
-
-      return bookmarks;
+      return await parent.getBookmarks();
     },
   },
 };

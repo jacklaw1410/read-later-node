@@ -7,10 +7,11 @@ export default gql`
   }
 
   type Bookmark {
+    id: String!
     title: String!
     url: String!
     tags: [Tag!]!
     added: DateTime!
-    finished: DateTime!
+    finished: DateTime
   }
 `;
