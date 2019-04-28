@@ -13,11 +13,16 @@
     "sequelize": "^5.7.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "nodemon": "^1.18.11",
     "prettier": "^1.17.0",
     "sequelize-cli": "^5.4.0"
   },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon --exec babel-node src/index.js",
     "format": "prettier --write src/**/*.{js,jsx}"
   }
 }
