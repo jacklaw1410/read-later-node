@@ -1,6 +1,9 @@
-const { ApolloServer, gql } = require('apollo-server');
-const { GraphQLDateTime } = require('graphql-iso-date');
-const { find, filter } = require('lodash');
+import { ApolloServer, gql } from 'apollo-server';
+import { GraphQLDateTime } from 'graphql-iso-date';
+import { find, filter } from 'lodash';
+import resolvers from './resolvers';
+import typeDefs from './schema';
+import models, { sequelize } from './models';
 
 require('dotenv').config();
 
@@ -18,11 +21,13 @@ const bookmarks = [
     added: '2019-04-20T13:18:27.698Z',
   },
   {
-    title: 'GraphQL Server Basics: GraphQL Schemas, TypeDefs & Resolvers Explained | Prisma',
-    url: 'https://www.prisma.io/blog/graphql-server-basics-the-schema-ac5e2950214e',
+    title:
+      'GraphQL Server Basics: GraphQL Schemas, TypeDefs & Resolvers Explained | Prisma',
+    url:
+      'https://www.prisma.io/blog/graphql-server-basics-the-schema-ac5e2950214e',
     tags: ['graphql'],
     added: '2019-04-22T05:06:48.831Z',
-  }
+  },
 ];
 
 const tags = [
@@ -48,42 +53,6 @@ const tags = [
   },
 ];
 
-const typeDefs = gql`
-  scalar DateTime
-
-  type Bookmark {
-    title: String!
-    url: String!
-    tags: [Tag!]!
-    added: DateTime!
-  }
-
-  type Tag {
-    name: String!
-    bookmarks: [Bookmark!]!
-  }
-
-  type Query {
-    bookmarks: [Bookmark!]!
-    tags: [Tag!]!
-  }
-`;
-
-const resolvers = {
-  Query: {
-    bookmarks: () => bookmarks,
-    tags: () => tags,
-  },
-  Bookmark: {
-    tags: parent => filter(tags, tag => parent.tags.includes(tag.id))
-  },
-  Tag: {
-    bookmarks: parent =>
-      filter(bookmarks, bookmark => bookmark.tags.includes(parent.id)),
-  },
-  DateTime: GraphQLDateTime,
-};
-
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -92,6 +61,9 @@ const server = new ApolloServer({
   },
   introspection: !!process.env.DEBUG,
   playground: !!process.env.DEBUG,
+  context: () => {
+    return { models };
+  },
 });
 
 server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
